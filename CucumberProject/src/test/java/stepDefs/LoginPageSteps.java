@@ -8,22 +8,22 @@ import org.testng.Assert;
 import static stepDefs.Hooks.*;
 
 public class LoginPageSteps {
-        @Given("A user registered successfully for this  valid scenario")
-        public void AUserRegisteredSuccessfullyForThis_ValidScenario(){
+        @Given("A user registered successfully for this  valid Data {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+        public void AUserRegisteredSuccessfullyForThis_ValidScenario(String gender,String firstname ,String lastname,String email,String day,String month,String year,String companyname,String password,String confirmedpassword){
             driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
 
-            registerPage.chooseGender("female");
-            registerPage.personalData("Sondos","Nasser","mahmoudN22@gmail.com");
-            registerPage.dateOfBirth("1","1","2000");
-            registerPage.companyName("Vois");
-            registerPage.passwords("27863686","27863686");
+            registerPage.chooseGender(gender);
+            registerPage.personalData(firstname,lastname,email);
+            registerPage.dateOfBirth(day,month,year);
+            registerPage.companyName(companyname);
+            registerPage.passwords(password,confirmedpassword);
             registerPage.ClickContinue();
 
         }
-        @When("A user registered successfully for this valid scenario")
-        public void AUserRegisteredSuccessfullyForThisValidScenario(){
+        @When("A user registered successfully for this valid {string} and valid {string}")
+        public void AUserRegisteredSuccessfullyForThisValidScenario(String email, String password){
             driver.get("https://demo.nopcommerce.com/");
-            loginPage.Login("mahmoudN22@gmail.com","27863686");
+            loginPage.Login(email,password);
 
     }
         @Then("The URL is true and My account tab is displayed")
@@ -34,27 +34,27 @@ public class LoginPageSteps {
             softAssert.assertAll();
     }
 
-    @Given("A user registered successfully for this in valid scenario")
-    public void AUserRegisteredSuccessfullyForThisInValidScenario(){
+    @Given("A user registered successfully for this invalid scenario {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+    public void AUserRegisteredSuccessfullyForThisInValidScenario(String gender,String firstname ,String lastname,String email,String day,String month,String year,String companyname,String password,String confirmedpassword){
         driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
 
-        registerPage.chooseGender("female");
-        registerPage.personalData("Sondos","Nasser","mahmoudN11@gmail.com");
-        registerPage.dateOfBirth("1","1","2000");
-        registerPage.companyName("Vois");
-        registerPage.passwords("27863686","27863686");
+        registerPage.chooseGender(gender);
+        registerPage.personalData(firstname,lastname,email);
+        registerPage.dateOfBirth(day,month,year);
+        registerPage.companyName(companyname);
+        registerPage.passwords(password,confirmedpassword);
         registerPage.ClickContinue();
 
     }
-        @When("A user inserts valid user name and in valid password after registration")
-        public void AUserInsertsValidUserNameAndInValidPasswordAfterRegistration(){
+        @When("A user inserts valid {string} and invalid {string} after registration")
+        public void AUserInsertsValidUserNameAndInValidPasswordAfterRegistration(String username, String password){
             driver.get("https://demo.nopcommerce.com/");
-            loginPage.Login("mahmoudN11@gmail.com","12345678");
+            loginPage.Login(username,password);
 
     }
-        @Then("An error Message is displayed and his color is red")
-    public void AnErrorMessageIsDisplayedAndHisColorIsRed(){
-            softAssert.assertEquals(openPage.getErrorMsgColor(),"#e4434b","message color isn't red");
+        @Then("An error Message is displayed and his color is red {string}")
+    public void AnErrorMessageIsDisplayedAndHisColorIsRed(String color){
+            softAssert.assertEquals(openPage.getErrorMsgColor(),color,"message color isn't red");
 
             softAssert.assertTrue(openPage.getErrorMsg().contains("Login was unsuccessful"));
             softAssert.assertAll();

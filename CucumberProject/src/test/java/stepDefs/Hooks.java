@@ -18,9 +18,6 @@ public class Hooks {
     public static OpenPage openPage;
     public static PageBase pageBase;
     public static SearchPage searchPage;
-    public static FollowUsPage followUsPage;
-    public static SlidersPage slidersPage;
-    public static HoverCategoriesPage hoverCategoriesPage;
 
     @Before
     public void setUp(){
@@ -34,9 +31,6 @@ public class Hooks {
         openPage = new OpenPage(driver);
         homePage = new HomePage(driver);
         searchPage = new SearchPage(driver);
-        followUsPage = new FollowUsPage(driver);
-        slidersPage = new SlidersPage(driver);
-        hoverCategoriesPage = new HoverCategoriesPage(driver);
         softAssert = new SoftAssert();
 
 

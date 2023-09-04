@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.SlidersPage;
+import pages.HomePage;
 
 import static stepDefs.Hooks.*;
 
@@ -16,23 +16,23 @@ public class SlidersPageSteps {
 
     @When("A user open Nokia Slider Url")
     public void aUserOpenNokiaSliderUrl() {
-        slidersPage.FirstSlider();
+        homePage.FirstSlider();
     }
 
     @Then("the expected nokia Url like {string}")
     public void theExpectedNokiaUrlLike(String nokiaUrl) {
-        Assert.assertEquals(SlidersPage.p,nokiaUrl);
+        Assert.assertEquals(HomePage.p,nokiaUrl);
         softAssert.assertAll();
     }
 
     @When("A user open IPhone Slider Url")
     public void aUserOpenIPhoneSliderUrl() {
-            slidersPage.SecondSlider();
+            homePage.SecondSlider();
     }
 
     @Then("the expected iphone  Url like {string}")
     public void theExpectedIphoneUrlLike(String iphoneUrl) {
-            Assert.assertEquals(SlidersPage.v,iphoneUrl);
+            Assert.assertEquals(HomePage.v,iphoneUrl);
             softAssert.assertAll();
     }
 }

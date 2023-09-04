@@ -4,8 +4,8 @@ Feature: HomePage feature
   @regression
   Scenario: As a user, I can add to wishlist successfully
     When A user click to add to washlist
-    Then A Success Message is Displayed and it is green
+    Then A Success Message is Displayed and it is green "#4bb07a"
     @regression
     Scenario: As a user, I can open the wishlist cart after the green message dis appeared
     When A green message is dis appeared to click on washlist card
-    Then A Qty value is bigger than zero
+    Then A Qty value is bigger than "1"

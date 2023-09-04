@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class PageBase {
     WebDriver driver;
@@ -27,6 +28,10 @@ public class PageBase {
         return wait;
     }
 
+    public ArrayList<String> arrylist() {
+        ArrayList<String> Tabs = new ArrayList<>(driver.getWindowHandles());
+        return Tabs;
+    }
 
 
     //expwait to click

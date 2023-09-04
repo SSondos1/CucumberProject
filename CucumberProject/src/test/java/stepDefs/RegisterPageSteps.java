@@ -13,18 +13,20 @@ public class RegisterPageSteps {
             driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
 
     }
-        @When("A user inserts valid Data")
-        public void AUserInsertsValidData(){
-            registerPage.chooseGender("female");
-            registerPage.personalData("Sondos","Nasser","mahmoudNasser11@gmail.com");
-            registerPage.dateOfBirth("1","1","2000");
-            registerPage.companyName("Vois");
-            registerPage.passwords("27863686","27863686");
+        @When("A user inserts valid Data {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+        public void AUserInsertsValidData(String gender,String firstname ,String lastname,String email,String day,String month,String year,String companyname,String password,String confirmedpassword){
+            registerPage.chooseGender(gender);
+            registerPage.personalData(firstname,lastname,email);
+            registerPage.dateOfBirth(day,month,year);
+            registerPage.companyName(companyname);
+            registerPage.passwords(password,confirmedpassword);
+            registerPage.ClickContinue();
+
     }
-        @Then("A registration Msg is appeared")
-        public void ARegistrationMsgIsAppeared(){
+        @Then("A registration Msg is appeared and his color is green {string}")
+        public void ARegistrationMsgIsAppeared(String color){
             Assert.assertEquals(openPage.getRegritionPassMsg(),"Your registration completed");
-            softAssert.assertEquals(openPage.getMsgColor(),"#4cb17c","message color isn't green");
+            softAssert.assertEquals(openPage.getMsgColor(),color,"message color isn't green");
 
             softAssert.assertAll();
     }

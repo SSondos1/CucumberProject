@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.HoverCategoriesPage;
+import pages.HomePage;
 
 import static stepDefs.Hooks.*;
 
@@ -16,11 +16,11 @@ public class HoverCategoriesPageSteps {
         }
         @When("A user hover on random category And select random item from this random category")
         public void AUserHoverOnRandomCategoryAndSelectRandomItemFromThisRandomCategory(){
-                hoverCategoriesPage.selectRandom1();
+                homePage.selectRandom1();
         }
         @Then("the sub category title is contains what i select")
         public void TheSubCategoryTitleIsContainsWhatIlect(){
-        Assert.assertEquals(HoverCategoriesPage.selectedSubCategoryText, HoverCategoriesPage.menu);
+        Assert.assertEquals(HomePage.selectedSubCategoryText, HomePage.menu);
         }
     }
 

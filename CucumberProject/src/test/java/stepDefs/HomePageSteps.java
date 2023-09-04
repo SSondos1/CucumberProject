@@ -16,10 +16,10 @@ public class HomePageSteps {
            homePage.AddToWishlist();
        }
 
-        @Then("A Success Message is Displayed and it is green")
-        public void AProductNameIsAppeared(){
+        @Then("A Success Message is Displayed and it is green {string}")
+        public void AProductNameIsAppeared(String color){
             softAssert.assertTrue(homePage.successMsgDisplayed());
-            softAssert.assertEquals(homePage.getMsgColoration(),"#4bb07a");
+            softAssert.assertEquals(homePage.getMsgColoration(),color);
             softAssert.assertAll();
         }
 
@@ -29,10 +29,10 @@ public class HomePageSteps {
         homePage.WishlistCart();
 
     }
-        @Then("A Qty value is bigger than zero")
-        public void aQtyValueIsBiggerThanZero() {
+        @Then("A Qty value is bigger than {string}")
+        public void aQtyValueIsBiggerThanZero(String num) {
 
-            softAssert.assertTrue(homePage.checkQtyValue().equals("1"));
+            softAssert.assertTrue(homePage.checkQtyValue().equals(num));
             softAssert.assertAll();
         }
 }

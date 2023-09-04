@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.FollowUsPage;
+import pages.HomePage;
 
 
 import static stepDefs.Hooks.*;
@@ -18,54 +18,54 @@ public class FollowUsPageSteps {
     @When("A user click to facebook follow us links")
     public void aUserClickToFacebookFollowUsLinks() {
 
-        followUsPage.OpenFaceBook();
+        homePage.OpenFaceBook();
 
     }
 
     @Then("the current facebook Url like {string}")
     public void theCurrentFacebookUrlLike(String expfacebookurl) {
 
-        Assert.assertEquals(FollowUsPage.y,expfacebookurl);
+        Assert.assertEquals(HomePage.y,expfacebookurl);
        softAssert.assertAll();
     }
 
     @When("A user click to twitter follow us links")
     public void aUserClickToTwitterFollowUsLinks() {
 
-        followUsPage.OpenTwitter();
+        homePage.OpenTwitter();
 
     }
 
     @Then("the current twitter Url like {string}")
     public void theCurrentTwitterUrlLike(String exptwitterurl) {
 
-        Assert.assertEquals(FollowUsPage.x,exptwitterurl,"failed");
+        Assert.assertEquals(HomePage.x,exptwitterurl,"failed");
         softAssert.assertAll();
     }
 
     @When("A user click to news follow us links")
     public void aUserClickToNewsFollowUsLinks() {
 
-        followUsPage.OpenNews();
+        homePage.OpenNews();
 
     }
 
     @Then("the current news Url like {string}")
     public void theCurrentNewsUrlLike(String expnewsurl) {
-        Assert.assertEquals(FollowUsPage.z,expnewsurl,"Failed");
+        Assert.assertEquals(HomePage.z,expnewsurl,"Failed");
         softAssert.assertAll();
     }
 
     @When("A user click to youtube follow us links")
     public void aUserClickToYoutubeFollowUsLinks() {
 
-        followUsPage.OpenYouTube();
+        homePage.OpenYouTube();
 
     }
 
     @Then("the current youtube Url like {string}")
     public void theCurrentYoutubeUrlLike(String expyoutubeurl) {
-        Assert.assertEquals(FollowUsPage.n,expyoutubeurl);
+        Assert.assertEquals(HomePage.n,expyoutubeurl);
         softAssert.assertAll();
     }
 }
